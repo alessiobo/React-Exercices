@@ -1,11 +1,9 @@
 import React from "react";
 
-function createHelloTag(name){
-    return <h1>Hello {name}</h1>
-}
+const sumH2 = (a, b) => <h2>{a + b}</h2>;
 
-export class App extends React.Component{
-    render(){
-        return createHelloTag("Alfio");
-    }
+export class App extends React.Component {
+  render() {
+    return sumH2(50, 50);
+  }
 }
