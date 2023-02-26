@@ -1,8 +1,11 @@
 import React from "react";
 
-let hello = <h1>Hello World!</h1>;
+function createHelloTag(name){
+    return <h1>Hello {name}</h1>
+}
+
 export class App extends React.Component{
     render(){
-        return hello
+        return createHelloTag("Alfio");
     }
 }
