@@ -5,7 +5,7 @@ export function App(){
     return (
         <div>
             <Hello />
-            <Welcome name="Giovanni" />
+            <Welcome />
         </div>
     )
 }
