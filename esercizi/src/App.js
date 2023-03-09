@@ -1,10 +1,10 @@
-import { ClickCounter } from "./ClickCounter";
+import { ClickTracker } from "./ClickTracker";
 
 
 export function App() {
   return (
     <div>
-      <ClickCounter />
+      <ClickTracker />
     </div>
   );
 }
