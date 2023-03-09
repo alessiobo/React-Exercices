@@ -1,9 +1,10 @@
-import { Counter } from "./Counter";
+import { ClickCounter } from "./ClickCounter";
+
 
 export function App() {
   return (
     <div>
-      <Counter value={5} interval={2000} amount={5} />
+      <ClickCounter />
     </div>
   );
 }
