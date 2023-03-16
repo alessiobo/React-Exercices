@@ -17,7 +17,7 @@ export class Login extends React.Component {
     const data = {
       username: this.state.username,
       password: this.state.password,
-      accept: this.state.remember,
+      remember: this.state.remember,
     };
 
     this.props.onLogin(data);
