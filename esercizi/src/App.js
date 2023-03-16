@@ -1,4 +1,4 @@
-import { Login } from "./Login";
+import { UncontrolledLogin } from "./UncontrolledLogin";
 
 export function App() {
   const acceptLoginHandler = (data) => {
@@ -7,7 +7,7 @@ export function App() {
 
   return (
     <div>
-      <Login onLogin={acceptLoginHandler} />
+      <UncontrolledLogin onLogin={acceptLoginHandler} />
     </div>
   );
 }
