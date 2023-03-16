@@ -1,10 +1,10 @@
-import { ClickTracker } from "./ClickTracker";
+import { InteractiveWelcome } from "./InteractiveWelcome";
 
 
 export function App() {
   return (
     <div>
-      <ClickTracker />
+      <InteractiveWelcome />
     </div>
   );
 }
