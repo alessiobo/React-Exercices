@@ -1,13 +1,10 @@
-import { UncontrolledLogin } from "./UncontrolledLogin";
+import { TodoList } from "./ToDoList";
 
 export function App() {
-  const acceptLoginHandler = (data) => {
-    console.log(data);
-  };
 
   return (
     <div>
-      <UncontrolledLogin onLogin={acceptLoginHandler} />
+      <TodoList />
     </div>
   );
 }
