@@ -4,7 +4,7 @@ export function App() {
 
   return (
     <div>
-      <Container />
+      <Container title="My App" />
     </div>
   );
 }
