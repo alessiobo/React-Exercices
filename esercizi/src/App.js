@@ -4,7 +4,9 @@ export function App() {
 
   return (
     <div>
-      <Container title="My App" />
+      <Container title="My Container">
+        <p>This is the content of my container.</p>
+      </Container>
     </div>
   );
 }
