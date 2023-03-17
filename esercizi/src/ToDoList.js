@@ -1,4 +1,5 @@
-//Modify the TodoList by adding a "reset" button that clears the items array when clicked.
+//Modify the TodoList by adding a "remove" button to each li tag. When clicked, the event handler should remove
+//corresponding item from the items array.
 
 import React from "react";
 
@@ -24,6 +25,13 @@ export class TodoList extends React.Component {
     this.setState({ items: [] });
   };
 
+  handleRemoveItem = (index) => {
+    const { items } = this.state;
+    const newItems = [...items];
+    newItems.splice(index, 1);
+    this.setState({ items: newItems });
+  };
+
   render() {
     const { items, newItem } = this.state;
 
@@ -31,7 +39,10 @@ export class TodoList extends React.Component {
       <div>
         <ul>
           {items.map((item, i) => (
-            <li key={i}>{item}</li>
+            <li key={i}>
+              {item}
+              <button onClick={() => this.handleRemoveItem(i)}>Remove</button>
+            </li>
           ))}
         </ul>
         <div>
