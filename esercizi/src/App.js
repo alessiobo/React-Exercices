@@ -1,10 +1,10 @@
-import { TodoList } from "./ToDoList";
+import { Welcome } from "./Welcome";
 
 export function App() {
 
   return (
     <div>
-      <TodoList />
+      <Welcome name="Napoleone" />
     </div>
   );
 }

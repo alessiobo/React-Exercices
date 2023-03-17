@@ -1,0 +1,12 @@
+import React from "react";
+
+export class Welcome extends React.Component {
+    render() {
+        return (
+            <div className='welcome'>
+                <h1>Hello, {this.props.name}!</h1>
+                <p>Welcome to my website</p>
+            </div>
+        )
+    }
+}
