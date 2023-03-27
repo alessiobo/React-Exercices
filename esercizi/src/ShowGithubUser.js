@@ -1,13 +1,39 @@
-import { useParams } from "react-router-dom";
-import GithubUser from "./GithubUser";
+import React, { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 
 function ShowGithubUser() {
-  const { user = "alessiobo" } = useParams();
+  const [list, setList] = useState(["alessiobo", "katilina88"]);
+  const [user, setUser] = useState("");
+
+  const inputChangeHandler = (ev) => {
+    const { value } = ev.target;
+    setUser(value);
+  };
+
+  const addToListHandler = () => {
+    if (user === "") {
+      return false;
+    }
+    setList([...list, user]);
+    setUser("");
+  };
+
+  const printList = list.map((item, index) => {
+    return (
+      <li key={index}>
+        <Link to={`/users/${item}`}>{item}</Link>
+      </li>
+    );
+  });
+
   return (
     <div>
-      <GithubUser username={user} />
+      <input name="search" value={user} onChange={inputChangeHandler} />
+      <button onClick={addToListHandler}>Search</button>
+
+      <ul>{printList}</ul>
+      <Outlet />
     </div>
   );
 }
-
 export default ShowGithubUser;

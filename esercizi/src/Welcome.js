@@ -1,13 +1,11 @@
-import React from "react";
 
-function Welcome(props) {
-  return (
-    <div>
-      <p>
-        Welcome, {props.name}!
-      </p>
-    </div>
-  );
-}
-
-export default Welcome;
+function Welcome() {
+    return (
+      <>
+        <h1>Welcome</h1>
+      </>
+    );
+  }
+  
+  export default Welcome;
+  

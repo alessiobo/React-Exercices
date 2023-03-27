@@ -1,34 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-function GithubUser({ username }) {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+function GithubUser() {
+  const { username } = useParams();
+
+  const [item, setItem] = useState("");
+
+  async function getGitUser(gitName) {
+    try {
+      const url = "https://api.github.com/users/" + gitName;
+
+      const fet = await fetch(url);
+      const json = await fet.json();
+
+      setItem(json);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
-    async function getData() {
-        try{
-            const response = await fetch(`https://api.github.com/users/${username}`);
-            const jsonData = await response.json();
-            setUser(jsonData);
-          }catch(error){
-            setError(error);
-          }
-        }  
-    getData();
+    getGitUser(username);
   }, [username]);
 
-  if (error) {
-    return <div>There's an error: {error.message}</div>;
-  }
-
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  // const printItems = items.map((el, id) => {
+  //   return <li key={id}>{el}</li>;
+  // });
 
   return (
     <div>
-      <h4>{user.name}</h4>
-      <img src={user.avatar_url} />
+      <ul>{item.name}</ul>
     </div>
   );
 }
