@@ -1,10 +1,10 @@
-// Modify the useGithubUser custom hook from Custom Hooks 03 to use the useSWR hook to fetch the data of a Github user.
+// Modify the useGithubUser hook so that, if the username is null, no request is made.
 
 import useSWR from "swr";
 
 function useGithubUser(username) {
   const { data, error, mutate } = useSWR(
-    `https://api.github.com/users/${username}`
+    username ? `https://api.github.com/users/${username}` : null
   );
 
   const fetchGithubUser = () => {
