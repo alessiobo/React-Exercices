@@ -1,4 +1,4 @@
-// Modify the useGithubUser hook so that, if the username is null, no request is made.
+// Modify the useGithubUser hook so that it returns a function to manually refetch the data when invoked.
 
 import useSWR from "swr";
 
