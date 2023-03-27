@@ -1,25 +1,15 @@
-import React, { useState } from "react";
-import DisplayLanguage from "./DisplayLanguage";
-import { LanguageContext } from "./LanguageContext";
+import React from "react";
+import UseCounter from "./UseCounter";
 
 function App() {
-  const [lan, setLan] = useState("en");
-
-  const languageChangeHandler = (ev) => {
-    const { value } = ev.target;
-
-    setLan(value);
-  };
+  const { count, increment, decrement, reset } = UseCounter(0);
 
   return (
     <div>
-      <select value={lan} onChange={languageChangeHandler}>
-        <option value={"en"}>ENGLISH</option>
-        <option value={"it"}>ITALIANO</option>
-      </select>
-      <LanguageContext.Provider value={lan}>
-        <DisplayLanguage />
-      </LanguageContext.Provider>
+      <h1>Counter: {count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={reset}>Reset</button>
     </div>
   );
 }
