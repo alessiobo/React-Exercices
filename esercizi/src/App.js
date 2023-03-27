@@ -1,10 +1,10 @@
 import React from "react";
-import { Counter } from "./Counter";
+import { LoginForm } from "./LoginForms";
 
 function App(){
   return (
     <div>
-      <Counter />
+      <LoginForm />
     </div>
   )
 }
