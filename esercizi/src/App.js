@@ -1,12 +1,13 @@
 import React from "react";
-import { LoginForm } from "./LoginForms";
+import { GitHubUser } from "./GitHubUser";
 
-function App(){
+function App() {
+  const username = "alessiobo";
   return (
     <div>
-      <LoginForm />
+      <GitHubUser username={username} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
