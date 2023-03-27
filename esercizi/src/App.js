@@ -1,10 +1,10 @@
 import React from "react";
-import { GithubUserList } from "./GithubUserList";
+import { Counter } from "./Counter";
 
 function App(){
   return (
     <div>
-      <GithubUserList />
+      <Counter />
     </div>
   )
 }
