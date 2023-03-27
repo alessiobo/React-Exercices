@@ -1,17 +1,20 @@
-// Create an App component that wraps a Routes component 
-// and add a single Route to the / path that renders the Welcome component from Function Components 01,
-// passing it a name prop. Render the App component within a BrowserRouter component.
+// Add a new Route to the /counter path that renders the Counter component from useState 01.
+
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Counter from "./Counter";
 import Welcome from "./Welcome";
+
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
       <Routes>
-        <Route path="/" element={<Welcome name="John" />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/:name" element={<Welcome />} />
+        <Route path="/counter" element={<Counter />} />
       </Routes>
-    </BrowserRouter>
+    </div>
   );
 }
 

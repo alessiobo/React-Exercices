@@ -1,11 +1,11 @@
-import React from "react";
+import { useParams } from "react-router-dom";
 
-function Welcome(props) {
+function Welcome() {
+  const { name = "World!" } = useParams();
+
   return (
     <div>
-      <p>
-        Welcome, {props.name}!
-      </p>
+      <h1>Welcome, {name}</h1>
     </div>
   );
 }
