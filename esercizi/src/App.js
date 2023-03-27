@@ -1,11 +1,10 @@
-// Add a Route to the users path that shows the GihubUserList component from useEffect 04. Modify it so that instead of showing the GithubUser component for each username entered, it shows a link to a nested route that shows the ShowGithubUser component. In doing so, remove the /users/:username route from the App component, and add a new nested route within the /users route.
+// Add an index route to the GithubUserList route that shows the "Add a user and select it" message.
 
 import { Link, Route, Routes } from "react-router-dom";
 import Counter from "./Counter";
 import GithubUser from "./GithubUser";
 import GithubUserList from "./GithubUserList";
 import Welcome from "./Welcome";
-
 function App() {
   return (
     <div>
@@ -18,6 +17,7 @@ function App() {
           <Route path="/" element={<Welcome />} />
 
           <Route path="/users" element={<GithubUserList />}>
+            <Route index element={<p>Add a user and select it</p>} />
             <Route path=":username" element={<GithubUser />} />
           </Route>
           <Route path="/counter" element={<Counter />} />
@@ -25,9 +25,8 @@ function App() {
             path="*"
             element={
               <div>
-              <h3>NOT FOUND</h3>
-              <Link to="/">Go Back</Link>
-            </div>
+                <h1>404 Not Found</h1>
+              </div>
             }
           />
         </Routes>
