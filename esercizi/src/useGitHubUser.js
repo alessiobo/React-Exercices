@@ -1,19 +1,37 @@
-// Extract the logic to fetch a Github user's data from the GithubUser component from useEffect 03 into a custom hook 
-//called useGithubUser.
+// Modify the useGithubUser hook to return the function to fetch the data of a Github user, along with the data of
+// the user and the error and loading states.
+import { useState } from 'react';
 
-import { useEffect, useState } from 'react';
-
-function useGitHubUser(username) {
+export function useGitHubUser(username) {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  function fetchUser() {
+    setLoading(true);
     fetch(`https://api.github.com/users/${username}`)
-      .then(response => response.json())
-      .then(json => setData(json));
-  }, [username]);
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .then(json => {
+        setData(json);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
+  }
 
-  return data;
+  return {
+    data,
+    error,
+    loading,
+    fetchUser
+  };
 }
-
-export default useGitHubUser;
 
